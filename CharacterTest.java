@@ -5,14 +5,17 @@ import org.junit.Test;
 import java.util.Random;
 
 public class CharacterTest {
-
+	Hero hero1;
+	BadGuy badGuy1;
+	Weapon weapon;
+	
 	@Before
 	public void setUp(){
-		Hero hero1 = new Hero("Joe", 10, 10, 10);
-		BadGuy badGuy1 = new BadGuy("Shmoe", 10, 10);
+		hero1 = new Hero("Joe", 10, 10, 10);
+		badGuy1 = new BadGuy("Shmoe", 10, 10);
 		
 		//TODO implement weapon constructor. Need to know the parameters
-		Weapon weapon = new Weapon();
+		weapon = new Weapon();
 	}
 
 	@Test
@@ -35,8 +38,8 @@ public class CharacterTest {
 	 */
 	public void BadGuyConstructorTest() {
 		assertEquals("Shmoe", badGuy1.getName());
-		assertEquals(10, badGuy1.getHitPoints());
-		assertEquals(10, badGuy1.getStrength());
+		assertEquals(10, badGuy1.getHitPoints(), 0.001);
+		assertEquals(10, badGuy1.getStrength(), 0.001);
 		assertEquals(null, badGuy1.getWeapon());
 	}
 
@@ -73,7 +76,7 @@ public class CharacterTest {
 		//check the weapon's user
 		
 		//ensure the hero doesn't have that weapon.
-		assertNull(hero1.getWeapon);
+		assertNull(hero1.getWeapon());
 		
 		//TODO may need to do more, b/c different kinds of weapons
 	}
@@ -153,7 +156,7 @@ public class CharacterTest {
 		//this should kill the hero
 		hero1.takeDamage(5);
 		assertEquals(hero1.getHitPoints(), 0, 0.00001);
-		assertFalse(hero1.getAlive();
+		assertFalse(hero1.getAlive());
 	}
 	
 	/**
@@ -172,7 +175,7 @@ public class CharacterTest {
 	public void testDecreaseMana() {
 		hero1.decreaseMana(6);
 	
-		assertEquals(4, hero1.getMana());
+		assertEquals(4, hero1.getMana(), 0.0001);
 	}
 	
 	/**
