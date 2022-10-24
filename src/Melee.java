@@ -7,47 +7,37 @@ public class Melee extends Weapon{
     private double strength;
     private Character user;
 
-    public Melee(double strength, double durability, Character user){
-        super(strength, durability, user);
-    }
-
-
+    /* ********************************************************************************************
+     CONSTRUCTOR METHODS
+     *********************************************************************************************/
     /**
-     * Uses the weapon on a character, returning a random double between 1 and the weapon's character's strength
-     * @return a random double between 1 and the weapon's character's strength
+     * No argument constructor to instantiate weapon without a character
      */
-    public double use(){
-        if (this.getUser() == null){
-            return 0.0;
-        }
-        else{
-            Random r = new Random();
-            return Math.max(r.nextDouble()*this.user.getStrength(),1.0);
-        }
+    public Melee(){
+        super(Constants.MELEE_STRENGTH);
     }
-
     /**
-     * Returns a double for a potentially high amount of damage or no damage caused by the use of the weapon
-     * @return a double for the damage caused by the weapon
+     * Single argument constructor to instantiate a weapon equipped by a character
      */
-    public double useSpecial(){
-        if (this.getUser() == null){
-            return 0.0;
-        }
-        else{
-            Random r = new Random();
-            double randDouble = r.nextDouble();
-
-            //if special attack backfires, causes damage to attacker
-            if(randDouble<=Constants.CHANCE_MELEE_BACKFIRE){
-                this.user.takeDamage(Math.max(randDouble*this.user.getStrength(),1.0));
-                return 0.0;
-            }
-
-            //if special attack doesn't backfire, returns damaged caused by attack
-            else{
-                return Math.max(randDouble*this.user.getStrength(),1.0)*Constants.SPECIAL_ATTACK_FACTOR;
-            }
-        }
+    public Melee(Character user){
+        super(Constants.MELEE_STRENGTH, user);
     }
+
+    /*********************************************************************************************
+     METHODS TO BE IMPLEMENTED BY CHILD
+     *********************************************************************************************/
+    @Override
+    public double getDurabilityChange() {
+        return Constants.MELEE_USE_DURABILITY_CHANGE;
+    }
+
+    @Override
+    public double getChanceOfBackfire() {
+        return Constants.CHANCE_MELEE_BACKFIRE;
+    }
+
+
+
+
+
 }
