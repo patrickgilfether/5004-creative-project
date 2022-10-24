@@ -95,7 +95,8 @@ public abstract class Weapon {
             //sets damage to a random double between the minimum
             Random r = new Random();
             double randDouble = r.nextDouble();
-            double damage = Math.max(randDouble*(this.user.getStrength()+this.strength),Constants.WEAPON_MIN_DAMAGE)*Constants.SPECIAL_ATTACK_FACTOR;
+            double damage = Math.max(randDouble*(this.user.getStrength()+this.strength*0.1),Constants.WEAPON_MIN_DAMAGE)*Constants.SPECIAL_ATTACK_FACTOR;
+            damage = Math.round(damage);
 
             //if special attack backfires, it incurs damage on the user
             if(randDouble<=this.getChanceOfBackfire()){

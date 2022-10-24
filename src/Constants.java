@@ -19,12 +19,12 @@ public final class Constants {
     public static final double MAGIC_STRENGTH = 50.0;
 
     //WEAPON BACKFIRE CHANCE
-    public static final double CHANCE_MELEE_BACKFIRE = 0.5;
+    public static final double CHANCE_MELEE_BACKFIRE = .40;
     public static final double CHANCE_RANGED_BACKFIRE = 0.05;
     public static final double CHANCE_MAGIC_BACKFIRE = 0.05;
 
     //OTHER CONSTANTS
-    public static final double SPECIAL_ATTACK_FACTOR = 3.0;
+    public static final double SPECIAL_ATTACK_FACTOR = 1.5;
     public static final double WEAPON_MIN_DAMAGE = 1.0;
     public static final double WEAPON_STARTING_DURABILITY = 100.0;
     public static final double MANA_USE_DECREASE = 10.0;
