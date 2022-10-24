@@ -1,5 +1,10 @@
-import java.util.Random;
-import java.lang.Math;
+/**************************************************************************************************
+ Briggs Twitchell
+ Dr. G
+ Creative Lab
+ 10/24/2022
+ Ranged.java
+ **************************************************************************************************/
 
 public class Ranged extends Weapon {
 
