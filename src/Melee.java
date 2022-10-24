@@ -19,13 +19,13 @@ public class Melee extends Weapon{
      * No argument constructor to instantiate weapon without a character
      */
     public Melee(){
-        super(Constants.MELEE_STRENGTH);
+        super(Constants.MELEE_STRENGTH, WeaponType.MELEE);
     }
     /**
      * Single argument constructor to instantiate a weapon equipped by a character
      */
     public Melee(Character user){
-        super(Constants.MELEE_STRENGTH, user);
+        super(Constants.MELEE_STRENGTH, WeaponType.MELEE,user);
     }
 
     /* ********************************************************************************************

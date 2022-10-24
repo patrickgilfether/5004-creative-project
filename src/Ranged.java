@@ -12,19 +12,19 @@ public class Ranged extends Weapon {
   private double strength;
   private Character user;
 
-  /*********************************************************************************************
+  /* ********************************************************************************************
    * CONSTRUCTOR METHODS
    *********************************************************************************************/
   /** No argument constructor to instantiate weapon without a character */
   public Ranged() {
-    super(Constants.RANGED_STRENGTH);
+    super(Constants.RANGED_STRENGTH,WeaponType.RANGED);
   }
   /** Single argument constructor to instantiate a weapon equipped by a character */
   public Ranged(Character user) {
-    super(Constants.RANGED_STRENGTH, user);
+    super(Constants.RANGED_STRENGTH, WeaponType.RANGED,user);
   }
 
-  /*********************************************************************************************
+  /* ********************************************************************************************
    * METHODS TO BE IMPLEMENTED BY CHILD
    *********************************************************************************************/
   @Override

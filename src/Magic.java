@@ -10,21 +10,21 @@ public class Magic extends Weapon {
 
     private double durability;
     private double strength;
-    private Character user;
+    private Hero user;
 
-    /*********************************************************************************************
+    /* ********************************************************************************************
      * CONSTRUCTOR METHODS
      *********************************************************************************************/
     /** No argument constructor to instantiate weapon without a character */
     public Magic() {
-        super(Constants.MAGIC_STRENGTH);
+        super(Constants.MAGIC_STRENGTH,WeaponType.MAGIC);
     }
     /** Single argument constructor to instantiate a weapon equipped by a character */
-    public Magic(Character user) {
-        super(Constants.MAGIC_STRENGTH, user);
+    public Magic(Hero user) {
+        super(Constants.MAGIC_STRENGTH, WeaponType.MAGIC,user);
     }
 
-    /*********************************************************************************************
+    /* ********************************************************************************************
      * METHODS TO BE IMPLEMENTED BY CHILD
      *********************************************************************************************/
     @Override
@@ -43,7 +43,7 @@ public class Magic extends Weapon {
      */
     @Override
     public double useSpecial(){
-        if(this.user.getMana<=0){
+        if(this.user.getMana()<=0){
             return 0.0;
     } else {
           this.user.decreaseMana(Constants.MANA_USE_DECREASE);

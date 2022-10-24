@@ -13,16 +13,18 @@ Briggs Twitchell
  *          - durability
  *          - strength
  *          - user
+ *          - type
  *      Methods
  *      ------
  *          - use
  *          - useSpecial
  *          - getUser
  *          - getDurability
+ *          - getType
  *          - getDurabilityChange
  *          - getChanceOfBackfire
  *          - changeDurability
- *          - changeUser
+ *          - setUser
  */
 
 import java.util.Random;
@@ -30,31 +32,34 @@ import java.lang.Math;
 
 public abstract class Weapon {
     private double durability;
-    private final double strength;
+    private double strength;
     private Character user;
+    private WeaponType type;
 
     /* ********************************************************************************************
      CONSTRUCTOR METHODS
      *********************************************************************************************/
     /**
-     * 1 argument constructor to instantiate a weapon with no character
+     * 2 argument constructor to instantiate a weapon with no character
      * @param strength double for the strength value of the weapon
      */
-    public Weapon(double strength){
+    public Weapon(double strength, WeaponType type){
         this.strength = strength;
         this.durability = Constants.WEAPON_STARTING_DURABILITY;
+        this.type = type;
         this.user = null;
     }
 
     /**
-     * 2 argument constructor to instantiate a weapon with a character
+     * 3 argument constructor to instantiate a weapon with a character
      * @param strength double for the strength value of the weapon
      * @param user Character object for the character weilding the weapon
      */
-    public Weapon(double strength, Character user){
-    this.strength = strength;
-    this.durability = Constants.WEAPON_STARTING_DURABILITY;
-    this.user = user;
+    public Weapon(double strength, WeaponType type, Character user){
+        this.strength = strength;
+        this.durability = Constants.WEAPON_STARTING_DURABILITY;
+        this.type = type;
+        this.user = user;
     }
 
     /* ********************************************************************************************
@@ -85,7 +90,7 @@ public abstract class Weapon {
 
         else{
             //decreases weapon durability
-            this.changeDurability(this.getDurabilityChange());
+            this.changeDurability(-this.getDurabilityChange());
 
             //sets damage to a random double between the minimum
             Random r = new Random();
@@ -114,6 +119,16 @@ public abstract class Weapon {
     }
 
     /**
+     * Returns a double for the weapon's durability
+     */
+    public double getDurability(){return this.durability;}
+
+    /**
+     * Returns a WeaponType enum representing the for the weapon's type (Melee, Ranged, or Magic)
+     */
+    public WeaponType getType(){return this.type;}
+
+    /**
      * Increases or decreases weapon durability value for double passed in
      * @param amountChanged double for the amount that durability
      */
@@ -130,10 +145,22 @@ public abstract class Weapon {
      * Changes the user equipping the weapon
      * @param user
      */
-    public void changeUser(Character user){
+    public void setUser(Character user){
         if(user != null){
             this.user = user;
         }
+    }
+
+    /**
+     * Puts the details of the weapon in a string
+     */
+    @Override
+    public String toString(){
+        String weaponString = this.type+" weapon"+"\n\tStrength = "+this.strength +"\n\tDurability = "+this.durability;
+        if(this.user != null){
+            weaponString += "\n\tUser: "+ this.user.getName();
+        }
+        return weaponString;
     }
 
     /* ********************************************************************************************
@@ -148,6 +175,7 @@ public abstract class Weapon {
      * Returns a double for the percentage chance that the weapon will backfire and cause damage to the weapon user
      */
     public abstract double getChanceOfBackfire();
+
 }
 
 
