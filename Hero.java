@@ -54,6 +54,9 @@ public class Hero extends Character{
 		//how much damage was taken
 		double damage = 0;
 		
+		//Accept the user input
+		Scanner userSelection = new Scanner(System.in);
+		
 		//while loop to validate use input
 		boolean flag = true;
 		while (flag) {
@@ -64,8 +67,6 @@ public class Hero extends Character{
 				System.out.printf("Select 3 for a special attack.\n");
 				System.out.printf("Your selection :\n");
 				
-				//Accept the user input
-				Scanner userSelection = new Scanner(System.in);
 				int input = userSelection.nextInt();
 				
 				//select the correct attack, based on their input
@@ -93,6 +94,7 @@ public class Hero extends Character{
 			}
 		}
 		
+		userSelection.close();
 		return damage;
 	}	
 	

@@ -6,16 +6,18 @@ import java.util.Random;
 
 public class CharacterTest {
 	Hero hero1;
+	Hero hero2;
 	BadGuy badGuy1;
 	Weapon weapon;
 	
 	@Before
 	public void setUp(){
 		hero1 = new Hero("Joe", 10, 10, 10);
-		badGuy1 = new BadGuy("Shmoe", 10, 10);
+		badGuy1 = new BadGuy("Shmoe", 50, 10);
+		hero2 = new Hero("Moe", 10, 10, 10);
 		
 		//TODO implement weapon constructor. Need to know the parameters
-		weapon = new Weapon();
+		weapon = new Melee();
 	}
 
 	@Test
@@ -38,7 +40,7 @@ public class CharacterTest {
 	 */
 	public void BadGuyConstructorTest() {
 		assertEquals("Shmoe", badGuy1.getName());
-		assertEquals(10, badGuy1.getHitPoints(), 0.001);
+		assertEquals(50, badGuy1.getHitPoints(), 0.001);
 		assertEquals(10, badGuy1.getStrength(), 0.001);
 		assertEquals(null, badGuy1.getWeapon());
 	}
@@ -67,15 +69,21 @@ public class CharacterTest {
 	 */
 	@Test
 	public void equipWeaponTest() {
+		//equip the hero with the weapon
 		hero1.equipWeapon(weapon);
 		
 		//check the weapon's user
+		assertEquals(hero1, weapon.getUser());
 		
-		badGuy1.equipWeapon(weapon);
+		assertNotNull(hero1.getWeapon());
+		
+		//equip the other hero with a weapon
+		hero2.equipWeapon(weapon);
 		
 		//check the weapon's user
+		assertEquals(hero2, weapon.getUser());
 		
-		//ensure the hero doesn't have that weapon.
+		//ensure the first hero doesn't have that weapon.
 		assertNull(hero1.getWeapon());
 		
 		//TODO may need to do more, b/c different kinds of weapons
@@ -125,13 +133,14 @@ public class CharacterTest {
 		hero1.equipWeapon(weapon);
 		
 		//save the Bad Guy's health
-		double prevBadGuyHealth = badguy1.getHitPoints();
+		double prevBadGuyHealth = badGuy1.getHitPoints();
 		
 		//have the hero attack the Bad Guy
 		double damage = hero1.attackWithWeapon(badGuy1);
 		
+		//TODO right now just using enum. getDamage would be useful for better tests.
 		//ensure the damage of the attack is the damage of the weapon
-		assertEquals(weapon.getDamage(), damage, 0.0001);
+		//assertEquals(weapon.getDamage(), damage, 0.0001);
 		
 		//get the expected health post-attack of the bad guy
 		double expectedHealth = prevBadGuyHealth - damage;

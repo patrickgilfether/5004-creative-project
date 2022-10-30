@@ -67,23 +67,6 @@ public abstract class Character {
 	abstract public double takeTurn(Character opponent);
 	
 	/**
-	 * This method equips the character with a Weapon object
-	 * If the weapon is magical, set the weapon's hero field as this Character.
-	 * 
-	 * @param weapon, a Weapon object
-	 */
-	public void equipWeapon(Weapon weapon) {
-		
-		this.weapon = weapon;
-		
-		//TODO see if this should be automatically set, or just magic weapons
-		if (weapon.getType() == Magic) {
-			this.weapon.setHero(this);
-		}
-		
-	}
-	
-	/**
 	 * This method represents a character attacking another character without a Weapon object.
 	 * The damage dealt is returned. The damage value is a random value between 1 and the character's strength.
 	 * 
@@ -130,6 +113,25 @@ public abstract class Character {
 	}
 	
 	/**
+	 * This method equips the character with a Weapon object
+	 * If the weapon is magical, set the weapon's hero field as this Character.
+	 * 
+	 * @param weapon, a Weapon object
+	 */
+	public void equipWeapon(Weapon weapon) {
+		
+		this.weapon = weapon;
+		
+		//set the weapon's previous user's weapon field to null
+		if (weapon.getUser() != null) {
+			weapon.getUser().weaponFieldNull();
+		}
+		
+		this.weapon.setUser(this);
+		
+	}
+	
+	/**
 	 * This method represents a Character taking damage. The input damage must not be less than zero.
 	 * The Character's hit points are decreased by the input amount. If their hit points drop to zero or under,
 	 * their alive field is changed to false.
@@ -149,6 +151,7 @@ public abstract class Character {
 		//check if the Character is alive
 		if (this.hitPoints <= 0) {
 			this.alive = false;
+			this.hitPoints = 0;
 		}
 		
 		return;
@@ -199,5 +202,10 @@ public abstract class Character {
 		return this.weapon;
 	}
 	
-
+	/**
+	 * Method to set the weapon field to null
+	 */
+	public void weaponFieldNull() {
+		this.weapon = null;
+	}
 }

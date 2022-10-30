@@ -53,6 +53,9 @@ public class BadGuy extends Character{
 		return damage;
 	}
 	
+	
+	//TODO make the badGuy only do basic attacks. No weapon equipped
+	
 	/**
 	 * Method to return a random selection of one of the bad guy's phrases
 	 * 
