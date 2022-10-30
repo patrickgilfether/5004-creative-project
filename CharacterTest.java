@@ -196,4 +196,30 @@ public class CharacterTest {
 	}
 	
 	//TODO need to add take turns and phrases tests. Prob can only do takeTurn for BadGuy
+	//TODO special attacks
+	/**
+	 * Test the special attack method.
+	 */
+	@Test
+	public void specialAttackTest() {
+		hero1.equipWeapon(weapon);
+		
+		//badguy to absorb all the attacks
+		BadGuy invincible = new BadGuy("Bad Guy", 1000000, 10);
+		
+		//fuzzy test
+		for (int i = 1; i <= 100; i++) {
+			//get the value of the target's health
+			double prevBadGuyHealth = invincible.getHitPoints();
+			
+			//attack the bad guy
+			double heroDamage = hero1.specialAttackWithWeapon(invincible);
+						
+			//compare the bad guy's expected health with their actual health
+			double expectedHealth = prevBadGuyHealth - heroDamage;
+			
+			assertEquals(expectedHealth, invincible.getHitPoints(), 0.0001);
+			
+		}
+	}
 }

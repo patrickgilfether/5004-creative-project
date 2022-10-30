@@ -123,10 +123,12 @@ public class Hero extends Character{
 	 */
 	public double specialAttackWithWeapon(Character opponent) {
 		
+		if (this.weapon == null) {
+			return 0;
+		}
+		
 		double damage = this.weapon.useSpecial();
-		
-		//TODO ensure this all works with the specific implementation of the weapon classes
-		
+				
 		opponent.takeDamage(damage);
 		
 		return damage;
