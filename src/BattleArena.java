@@ -48,6 +48,7 @@ public class BattleArena {
         int input = s.nextInt();
         Weapon choice = weapons[input-1];
         hero.equipWeapon(choice);
+//        s.close();
     }
 
 //    private Character[] init_Combatants(){
