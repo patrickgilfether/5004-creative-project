@@ -50,13 +50,13 @@ public class BattleArena {
         hero.equipWeapon(choice);
     }
 
-    private Character[] init_Combatants(){
-        hero = heroes[r.nextInt(heroes.length)];        //select random hero
-        badGuy = badGuys[r.nextInt(badGuys.length)];    //select random badguy
-        Character[] combatants = {hero, badGuy};         //prompt user to select hero weapon
-        selectWeapon(hero);                             // display / equip weapon
-        return combatants;
-    }
+//    private Character[] init_Combatants(){
+//        Hero hero = heroes[r.nextInt(heroes.length)];        //select random hero
+//        BadGuy badGuy = badGuys[r.nextInt(badGuys.length)];    //select random badguy
+//        Character[] combatants = {hero, badGuy};         //prompt user to select hero weapon
+//        selectWeapon(hero);                             // display / equip weapon
+//        return combatants;
+//    }
 
     public void displayCombatants(Character[] combatants) {
         for (Character c : combatants) {
@@ -66,29 +66,40 @@ public class BattleArena {
 
     private void turn(Character[] combatants){
         displayCombatants(combatants);
-        for (Character c :combatants){
-            c.takeTurn();
-        }
+        combatants[0].takeTurn(combatants[1]);
+        combatants[1].takeTurn(combatants[0]);
     }
 
-    public void battle(Character goodGuy, Character badGuy){
+    public void battle(){
 
         //init battle
-        Character[] combatants = init_Combatants();
+        Hero hero = heroes[r.nextInt(heroes.length)];        //select random hero
+        BadGuy badGuy = badGuys[r.nextInt(badGuys.length)];    //select random badguy
+        Character[] combatants = {hero, badGuy};         //prompt user to select hero weapon
+        selectWeapon(hero);
         //select combatants
 
-        while (goodGuy.getHitPoints()>0 && badGuy.getHitPoints()>0){
+        while (hero.getAlive() && badGuy.getAlive()){
             turn(combatants);
         }
-        if (goodGuy.getHitPoints()>0){
-            System.out.println( goodGuy + " won!");
+        if (hero.getAlive()){
+            System.out.println( hero + " won!");
         }
-        if (goodGuy.getHitPoints()>0){
-            System.out.println( goodGuy + " has been vanquished. " + badGuy + " won!" );
+        else{
+            System.out.println( hero + " has been vanquished. " + badGuy + " won!" );
         }
         System.out.println("GAME OVER");
     }
 
+    public Hero[] getHeroes() {
+        return heroes;
+    }
 
+    public BadGuy[] getBadGuys() {
+        return badGuys;
+    }
 
+    public Weapon[] getWeapons() {
+        return weapons;
+    }
 }
