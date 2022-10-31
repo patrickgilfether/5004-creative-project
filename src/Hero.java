@@ -6,6 +6,7 @@
  * This file is the Hero class
  */
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -56,7 +57,12 @@ public class Hero extends Character{
 		
 		//Accept the user input
 		Scanner userSelection = new Scanner(System.in);
-		
+//		try {
+//			System.out.println(System.in.available());
+//		} catch (IOException e) {
+//			throw new RuntimeException(e);
+//		}
+
 		//while loop to validate use input
 		boolean flag = true;
 		while (flag) {
@@ -66,8 +72,8 @@ public class Hero extends Character{
 				System.out.printf("Select 2 for a weapon attack.\n");
 				System.out.printf("Select 3 for a special attack.\n");
 				System.out.printf("Your selection :\n");
-				
 				int input = userSelection.nextInt();
+
 				
 				//select the correct attack, based on their input
 				switch(input) {
@@ -94,7 +100,7 @@ public class Hero extends Character{
 			}
 		}
 		
-		userSelection.close();
+//		userSelection.close();
 		return damage;
 	}	
 	
