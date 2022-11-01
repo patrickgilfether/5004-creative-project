@@ -79,7 +79,7 @@ public class Hero extends Character{
 				System.out.printf("Select 3 for a special attack.\n");
 				System.out.printf("Select 4 to use a potion. %d left.\n", this.potionsAvailable);
 
-				
+				int input = userSelection.nextInt();
 
 				//select the correct action, based on their input
 
@@ -121,10 +121,12 @@ public class Hero extends Character{
 								switch(potionInput) {
 									case 1:
 										this.hitPoints += 20;
+										this.potionsAvailable --;
 										flag2 = false;
 										break;
 									case 2:
 										this.mana += 20;
+										this.potionsAvailable --;
 										flag2 = false;
 										break;
 									default:
@@ -140,7 +142,7 @@ public class Hero extends Character{
 								System.out.println("You must enter an integer between 1 - 2.\n");
 							}
 							*/
-							
+							break;
 						}
 						
 

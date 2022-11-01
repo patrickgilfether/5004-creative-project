@@ -43,6 +43,9 @@ public class BadGuy extends Character{
 		
 		double damage;
 		
+		//the bad gut should talk trash
+		System.out.printf("%s\n", this.talkTrash());
+		
 		//if the bad guy's weapon exists and isn't out of durability, weapon attack
 		if (this.getWeapon() != null && this.getWeapon().getDurability() > 0) {
 			damage = this.attackWithWeapon(opponent);
@@ -71,7 +74,7 @@ public class BadGuy extends Character{
 		int choice = random.nextInt(len);
 		
 		//return the random phrase
-		return phrases[choice];
+		return this.name + " said \"" + phrases[choice] + "\"";
 	}
 	
 }
