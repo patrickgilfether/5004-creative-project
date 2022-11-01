@@ -1,5 +1,5 @@
 public class BattleArenaTestDriver {
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
         //declarations
         Hero hero1;
         Hero hero2;

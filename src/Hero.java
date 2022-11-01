@@ -100,7 +100,7 @@ public class Hero extends Character{
 							System.out.println("\tThis hero has no potions left!");
 							break;
 						}
-						
+
 						
 						//user options to use a health or a mana potion
 						boolean flag2 = true;
@@ -118,11 +118,13 @@ public class Hero extends Character{
 								switch(potionInput) {
 									case 1:
 										this.hitPoints += 20;
+										potionsAvailable--;
 										System.out.println("\t" + name + " used a health potion to recover 20 HP!");
 										flag2 = false;
 										break;
 									case 2:
 										this.mana += 20;
+										potionsAvailable--;
 										System.out.println("\t" + name + " used a mana potion to recover 20 mana!");
 										flag2 = false;
 										break;
@@ -132,14 +134,11 @@ public class Hero extends Character{
 								
 							}
 							catch (IllegalArgumentException e) {
-								System.out.printf("You must enter an integer between 1 - 2.\n");
+								System.out.printf("\tYou must enter an integer between 1 - 2.\n");
 							}
-							/*
-							catch (InputMismatchException e) {
-								System.out.println("You must enter an integer between 1 - 2.\n");
-							}
-							*/
-							
+							break;
+
+
 						}
 						
 
@@ -151,13 +150,8 @@ public class Hero extends Character{
 			//process the user's invalid input
 			catch (IllegalArgumentException e) {
 
-				System.out.printf("You must enter an integer between 1 - 4.\n");
+				System.out.printf("\tYou must enter an integer between 1 - 4.\n");
 			}
-			/*
-			catch (InputMismatchException e) {
-				System.out.println("You must enter an integer between 1 - 4.\n");
-			}
-			*/
 
 		}
 		
@@ -175,7 +169,7 @@ public class Hero extends Character{
 	 */
 	public void decreaseMana(double amount) throws IllegalArgumentException{
 		if (amount < 0) {
-			throw new IllegalArgumentException("You cannot decrease a Character's mana via a negative input.");
+			throw new IllegalArgumentException("\tYou cannot decrease a Character's mana via a negative input.");
 		}
 		
 		this.mana -= amount;
@@ -197,6 +191,13 @@ public class Hero extends Character{
 		double damage = this.weapon.useSpecial();
 				
 		opponent.takeDamage(damage);
+		System.out.println(" ▄▀▀▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀█▄▄▄▄  ▄▀▄▄▄▄   ▄▀▀█▀▄    ▄▀▀█▄   ▄▀▀▀▀▄         ▄▀▀█▄   ▄▀▀▀█▀▀▄  ▄▀▀▀█▀▀▄  ▄▀▀█▄   ▄▀▄▄▄▄   ▄▀▀▄ █ \n" +
+				"█ █   ▐ █   █   █ ▐  ▄▀   ▐ █ █    ▌ █   █  █  ▐ ▄▀ ▀▄ █    █         ▐ ▄▀ ▀▄ █    █  ▐ █    █  ▐ ▐ ▄▀ ▀▄ █ █    ▌ █  █ ▄▀ \n" +
+				"   ▀▄   ▐  █▀▀▀▀    █▄▄▄▄▄  ▐ █      ▐   █  ▐    █▄▄▄█ ▐    █           █▄▄▄█ ▐   █     ▐   █       █▄▄▄█ ▐ █      ▐  █▀▄  \n" +
+				"▀▄   █     █        █    ▌    █          █      ▄▀   █     █           ▄▀   █    █         █       ▄▀   █   █        █   █ \n" +
+				" █▀▀▀    ▄▀        ▄▀▄▄▄▄    ▄▀▄▄▄▄▀  ▄▀▀▀▀▀▄  █   ▄▀    ▄▀▄▄▄▄▄▄▀    █   ▄▀   ▄▀        ▄▀       █   ▄▀   ▄▀▄▄▄▄▀ ▄▀   █  \n" +
+				" ▐      █          █    ▐   █     ▐  █       █ ▐   ▐     █            ▐   ▐   █         █         ▐   ▐   █     ▐  █    ▐  \n" +
+				"        ▐          ▐        ▐        ▐       ▐           ▐                    ▐         ▐                 ▐        ▐       ");
 		System.out.println("\t" + this.getName() + " did a super special attack " + opponent.getName() + " dealing " + String.format("%.1f",damage) + " points of damage");
 		
 		return damage;
@@ -213,8 +214,8 @@ public class Hero extends Character{
 
 	@Override
 	public String toString() {
-		return "Hero:  " + name + "\n	" +
-				"HP: " + String.format("%.1f",hitPoints) +
+		return "Hero:  " + name +
+				", HP: " + String.format("%.1f",hitPoints) +
 				", mana: " + String.format("%.1f",mana) +
 				", weapon equipped: " + weapon.getType();
 	}

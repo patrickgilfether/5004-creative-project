@@ -64,7 +64,7 @@ public abstract class Character {
 	 * @param opponent, a Character object
 	 * @return double, how much damage the opponent took.
 	 */
-	abstract public double takeTurn(Character opponent);
+	abstract public double takeTurn(Character opponent) throws InterruptedException;
 	
 	/**
 	 * This method represents a character attacking another character without a Weapon object.

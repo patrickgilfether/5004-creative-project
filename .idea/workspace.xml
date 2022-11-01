@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d93c0fa-2456-490e-8785-cb34a74a2b98" name="Changes" comment="battle arena class v2... driver">
+    <list default="true" id="2d93c0fa-2456-490e-8785-cb34a74a2b98" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BadGuy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BadGuy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BattleArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleArena.java" afterDir="false" />
@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667249253376</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="battle arena class v2... driver">
+      <created>1667321937649</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667321937650</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,11 +193,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BattleArena.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Hero.java</url>
           <line>87</line>
