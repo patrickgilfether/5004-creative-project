@@ -63,22 +63,19 @@ public class Hero extends Character{
 		
 		//Accept the user input
 		Scanner userSelection = new Scanner(System.in);
-//		try {
-//			System.out.println(System.in.available());
-//		} catch (IOException e) {
-//			throw new RuntimeException(e);
-//		}
+
 
 		//while loop to validate use input
 		boolean flag = true;
 		while (flag) {
 			try {
 				//print options to the user
-				System.out.printf("Select 1 for a basic attack.\n");
-				System.out.printf("Select 2 for a weapon attack.\n");
-				System.out.printf("Select 3 for a special attack.\n");
-				System.out.printf("Select 4 to use a potion. %d left.\n", this.potionsAvailable);
-
+				System.out.printf("\tSelect 1 for a basic attack.\n");
+				System.out.printf("\tSelect 2 for a weapon attack.\n");
+				System.out.printf("\tSelect 3 for a special attack.\n");
+				System.out.printf("\tSelect 4 to use a potion. %d left.\n", this.potionsAvailable);
+				System.out.printf("\tYour selection :\n");
+				int input = userSelection.nextInt();
 				
 
 				//select the correct action, based on their input
@@ -100,19 +97,19 @@ public class Hero extends Character{
 					case 4:
 						//break if the user has no potions left
 						if (this.potionsAvailable == 0) {
-							System.out.println("This hero has no potions left!");
+							System.out.println("\tThis hero has no potions left!");
 							break;
 						}
-						
+
 						
 						//user options to use a health or a mana potion
 						boolean flag2 = true;
 						while (flag2) {
 							try {
 								//print options to the user
-								System.out.printf("Select 1 to use a health potion.\n");
-								System.out.printf("Select 2 to use a mana potion.\n");
-								System.out.printf("Your selection :\n");
+								System.out.printf("\tSelect 1 to use a health potion.\n");
+								System.out.printf("\tSelect 2 to use a mana potion.\n");
+								System.out.printf("\tYour selection :\n");
 								
 								//accept user input
 								int potionInput = userSelection.nextInt();
@@ -121,10 +118,14 @@ public class Hero extends Character{
 								switch(potionInput) {
 									case 1:
 										this.hitPoints += 20;
+										potionsAvailable--;
+										System.out.println("\t" + name + " used a health potion to recover 20 HP!");
 										flag2 = false;
 										break;
 									case 2:
 										this.mana += 20;
+										potionsAvailable--;
+										System.out.println("\t" + name + " used a mana potion to recover 20 mana!");
 										flag2 = false;
 										break;
 									default:
@@ -133,14 +134,11 @@ public class Hero extends Character{
 								
 							}
 							catch (IllegalArgumentException e) {
-								System.out.printf("You must enter an integer between 1 - 2.\n");
+								System.out.printf("\tYou must enter an integer between 1 - 2.\n");
 							}
-							/*
-							catch (InputMismatchException e) {
-								System.out.println("You must enter an integer between 1 - 2.\n");
-							}
-							*/
-							
+							break;
+
+
 						}
 						
 
@@ -152,13 +150,8 @@ public class Hero extends Character{
 			//process the user's invalid input
 			catch (IllegalArgumentException e) {
 
-				System.out.printf("You must enter an integer between 1 - 4.\n");
+				System.out.printf("\tYou must enter an integer between 1 - 4.\n");
 			}
-			/*
-			catch (InputMismatchException e) {
-				System.out.println("You must enter an integer between 1 - 4.\n");
-			}
-			*/
 
 		}
 		
@@ -176,7 +169,7 @@ public class Hero extends Character{
 	 */
 	public void decreaseMana(double amount) throws IllegalArgumentException{
 		if (amount < 0) {
-			throw new IllegalArgumentException("You cannot decrease a Character's mana via a negative input.");
+			throw new IllegalArgumentException("\tYou cannot decrease a Character's mana via a negative input.");
 		}
 		
 		this.mana -= amount;
@@ -198,6 +191,14 @@ public class Hero extends Character{
 		double damage = this.weapon.useSpecial();
 				
 		opponent.takeDamage(damage);
+		System.out.println(" ▄▀▀▀▀▄  ▄▀▀▄▀▀▀▄  ▄▀▀█▄▄▄▄  ▄▀▄▄▄▄   ▄▀▀█▀▄    ▄▀▀█▄   ▄▀▀▀▀▄         ▄▀▀█▄   ▄▀▀▀█▀▀▄  ▄▀▀▀█▀▀▄  ▄▀▀█▄   ▄▀▄▄▄▄   ▄▀▀▄ █ \n" +
+				"█ █   ▐ █   █   █ ▐  ▄▀   ▐ █ █    ▌ █   █  █  ▐ ▄▀ ▀▄ █    █         ▐ ▄▀ ▀▄ █    █  ▐ █    █  ▐ ▐ ▄▀ ▀▄ █ █    ▌ █  █ ▄▀ \n" +
+				"   ▀▄   ▐  █▀▀▀▀    █▄▄▄▄▄  ▐ █      ▐   █  ▐    █▄▄▄█ ▐    █           █▄▄▄█ ▐   █     ▐   █       █▄▄▄█ ▐ █      ▐  █▀▄  \n" +
+				"▀▄   █     █        █    ▌    █          █      ▄▀   █     █           ▄▀   █    █         █       ▄▀   █   █        █   █ \n" +
+				" █▀▀▀    ▄▀        ▄▀▄▄▄▄    ▄▀▄▄▄▄▀  ▄▀▀▀▀▀▄  █   ▄▀    ▄▀▄▄▄▄▄▄▀    █   ▄▀   ▄▀        ▄▀       █   ▄▀   ▄▀▄▄▄▄▀ ▄▀   █  \n" +
+				" ▐      █          █    ▐   █     ▐  █       █ ▐   ▐     █            ▐   ▐   █         █         ▐   ▐   █     ▐  █    ▐  \n" +
+				"        ▐          ▐        ▐        ▐       ▐           ▐                    ▐         ▐                 ▐        ▐       ");
+		System.out.println("\t" + this.getName() + " did a super special attack " + opponent.getName() + " dealing " + String.format("%.1f",damage) + " points of damage");
 		
 		return damage;
 	}
@@ -211,4 +212,11 @@ public class Hero extends Character{
 		return this.mana;
 	}
 
+	@Override
+	public String toString() {
+		return "Hero:  " + name +
+				", HP: " + String.format("%.1f",hitPoints) +
+				", mana: " + String.format("%.1f",mana) +
+				", weapon equipped: " + weapon.getType();
+	}
 }

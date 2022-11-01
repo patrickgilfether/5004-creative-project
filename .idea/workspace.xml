@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d93c0fa-2456-490e-8785-cb34a74a2b98" name="Changes" comment="" />
+    <list default="true" id="2d93c0fa-2456-490e-8785-cb34a74a2b98" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BattleArena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BattleArena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PoolFloaty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PoolFloaty.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +29,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -120,7 +131,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667249253376</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="battle arena class v2... driver">
+      <created>1667321937649</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667321937650</updated>
+    </task>
+    <task id="LOCAL-00008" summary="adding sick ASCII graphics. fixed potions decrementer">
+      <created>1667324300303</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667324300303</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,20 +192,30 @@
     <MESSAGE value="battle arena class v1....likely full of errors in interactions with weapon, hero, driver" />
     <MESSAGE value="battle arena class v2....some changes to work better with other classes.&#10;&#10;Driver encountering issue in hero.takeTurn() ... scanner not waiting for input at terminal, i believe. possible to force stepping through in debugger." />
     <MESSAGE value="battle arena class v2... driver" />
-    <option name="LAST_COMMIT_MESSAGE" value="battle arena class v2... driver" />
+    <MESSAGE value="adding sick ASCII graphics. fixed potions decrementer" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding sick ASCII graphics. fixed potions decrementer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BattleArena.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/src/Hero.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Hero.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/BattleArena.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/PoolFloaty.java</url>
+          <line>51</line>
+          <properties class="PoolFloaty" method="useSpecial">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

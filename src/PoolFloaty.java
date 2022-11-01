@@ -64,7 +64,7 @@ public class PoolFloaty extends Weapon {
 
             //weapon has a high chance of doing nothing, and a small chance of doing deadly damage
             if(randDouble<=this.getChanceOfBackfire()){
-                this.user.takeDamage(0);
+                this.getUser().takeDamage(0);
                 return 0.0;
             }
 
