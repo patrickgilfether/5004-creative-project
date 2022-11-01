@@ -20,6 +20,7 @@ import java.util.Scanner;
 public class Hero extends Character{
 	//field for the Hero's mana, limits how much magic they can perform
 	private double mana = 0;
+
 	//int to keep track of hero potion usage.
 	private int potionsAvailable = 2;
 	
@@ -48,7 +49,9 @@ public class Hero extends Character{
 
 
 	/**
+
 	 * This method allows the user to select an attack or action for their Character to make.
+
 	 * 
 	 * @parameter opponent, Character object to be targeted
 	 * @return double, how much damage was taken by the opponent
@@ -75,11 +78,11 @@ public class Hero extends Character{
 				System.out.printf("Select 2 for a weapon attack.\n");
 				System.out.printf("Select 3 for a special attack.\n");
 				System.out.printf("Select 4 to use a potion. %d left.\n", this.potionsAvailable);
-				System.out.printf("Your selection :\n");
-				int input = userSelection.nextInt();
 
 				
+
 				//select the correct action, based on their input
+
 				switch(input) {
 					case 1:
 						this.basicAttack(opponent);
@@ -93,6 +96,7 @@ public class Hero extends Character{
 						this.specialAttackWithWeapon(opponent);
 						flag = false;
 						break;
+
 					case 4:
 						//break if the user has no potions left
 						if (this.potionsAvailable == 0) {
@@ -139,6 +143,7 @@ public class Hero extends Character{
 							
 						}
 						
+
 					default:
 						//the user did not enter a valid number
 						throw new IllegalArgumentException(); 
@@ -146,6 +151,7 @@ public class Hero extends Character{
 			}
 			//process the user's invalid input
 			catch (IllegalArgumentException e) {
+
 				System.out.printf("You must enter an integer between 1 - 4.\n");
 			}
 			/*
@@ -153,6 +159,7 @@ public class Hero extends Character{
 				System.out.println("You must enter an integer between 1 - 4.\n");
 			}
 			*/
+
 		}
 		
 //		userSelection.close();
