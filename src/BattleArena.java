@@ -40,16 +40,43 @@ public class BattleArena {
         }
     }
 
-    public void selectWeapon(Hero hero){
-        Scanner s = new Scanner(System.in);
-
+    public void selectWeapon(Hero hero) {
         displayWeapons();
-        System.out.println("\nEnter the number of the weapon you choose:");
-        int input = s.nextInt();
-        Weapon choice = weapons[input-1];
-        hero.equipWeapon(choice);
-        System.out.println();
-//        s.close();
+        Scanner s = new Scanner(System.in);
+        //while loop to validate use input
+        boolean flag = true;
+        while (flag) {
+            try {
+                System.out.println("\nEnter the number of the weapon you choose:");
+                int input = s.nextInt();
+
+
+                //select the correct action, based on their input
+
+                switch (input) {
+                    case 1:
+                        hero.equipWeapon(weapons[0]);
+                        flag = false;
+                        break;
+                    case 2:
+                        hero.equipWeapon(weapons[1]);
+                        flag = false;
+                        break;
+                    case 3:
+                        hero.equipWeapon(weapons[2]);
+                        flag = false;
+                        break;
+                    case 4:
+                        hero.equipWeapon(weapons[3]);
+                        flag = false;
+                        break;
+                }
+            } catch (IllegalArgumentException e) {                //process the user's invalid input
+                System.out.printf("\tYou must enter an integer between 1 - 4.\n");
+            }
+
+            System.out.println();
+        }
     }
 
 //    private Character[] init_Combatants(){
