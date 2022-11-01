@@ -41,8 +41,4 @@ public class Melee extends Weapon{
         return Constants.CHANCE_MELEE_BACKFIRE;
     }
 
-
-
-
-
 }

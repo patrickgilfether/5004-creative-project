@@ -144,7 +144,9 @@ public abstract class Weapon {
 
     /**
      * Changes the user equipping the weapon
-     * @param user
+
+     * @param user the character using the weapon
+
      */
     public void setUser(Character user){
         if(user != null){
@@ -157,7 +159,8 @@ public abstract class Weapon {
      */
     @Override
     public String toString(){
-        String weaponString = this.type+" weapon"+"\n\tStrength = "+this.strength +"\n\tDurability = "+this.durability;
+
+        String weaponString = this.type+"\n\tStrength = "+this.strength +"\n\tDurability = "+this.durability;
         if(this.user != null){
             weaponString += "\n\tUser: "+ this.user.getName();
         }
