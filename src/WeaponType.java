@@ -1,5 +1,5 @@
 /**
  * Class that holds the three weapon types
  */
-public enum WeaponType {MELEE,RANGED,MAGIC}
+public enum WeaponType {MELEE,RANGED,MAGIC,POOLFLOATY}
 
