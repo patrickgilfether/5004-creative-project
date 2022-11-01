@@ -89,7 +89,7 @@ public abstract class Character {
 		
 		//decrease the opponent's hitPoints
 		opponent.takeDamage(damageValue);
-		
+		System.out.println("\t" + this.getName() + " attacked " + opponent.getName() + " dealing " + String.format("%.1f",damageValue) + " points of damage");
 		return damageValue;
 	}
 	
@@ -108,7 +108,7 @@ public abstract class Character {
 		
 		//decrease the opponent's hit points
 		opponent.takeDamage(damage);
-		
+		System.out.println("\t" + this.getName() + " attacked " + opponent.getName() + " with a weapon, dealing " + String.format("%.1f",damage) + " points of damage");
 		return damage;
 	}
 	

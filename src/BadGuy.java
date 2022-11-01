@@ -25,7 +25,6 @@ public class BadGuy extends Character{
 	 * @param name, the hero's name
 	 * @param hP, the hero's health points. Must be larger than zero.
 	 * @param strength, the hero's strength. Must not be less than one.
-	 * @param mana, the hero's mana. Must not be less than zero.
 	 */
 	public BadGuy(String name, double hP, double strength) {
 		super(name, hP, strength);
@@ -42,6 +41,8 @@ public class BadGuy extends Character{
 	public double takeTurn(Character opponent) {
 		
 		double damage;
+
+		talkTrash();
 		
 		//if the bad guy's weapon exists and isn't out of durability, weapon attack
 		if (this.getWeapon() != null && this.getWeapon().getDurability() > 0) {
@@ -73,5 +74,10 @@ public class BadGuy extends Character{
 		//return the random phrase
 		return phrases[choice];
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Bad Guy:  " + name + "\n	" +
+				"HP: " + String.format("%.1f",hitPoints);
+	}
 }

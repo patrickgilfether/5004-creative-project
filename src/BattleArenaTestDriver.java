@@ -7,10 +7,11 @@ public class BattleArenaTestDriver {
         BadGuy badGuy2;
         Hero[] heroes = new Hero[2];
         BadGuy[] badGuys= new BadGuy[2];
-        Weapon[] weapons = new Weapon[3];
+        Weapon[] weapons = new Weapon[4];
         Weapon melee1;
         Weapon magic1;
         Weapon ranged1;
+        Weapon pool1;
         BattleArena battle1;
 
         //init
@@ -27,9 +28,11 @@ public class BattleArenaTestDriver {
         melee1 = new Melee();
         magic1 = new Magic();
         ranged1 = new Ranged();
+        pool1 = new PoolFloaty();
         weapons[0] = melee1;
         weapons[1] = magic1;
         weapons[2] = ranged1;
+        weapons[3] = pool1;
 
         battle1 = new BattleArena(heroes,badGuys,weapons);
 

@@ -36,7 +36,7 @@ public class BattleArena {
     public void displayWeapons(){
         System.out.println("WEAPON RACK:");
         for (int i = 1; i<= weapons.length; i++){
-            System.out.println(i +": " + weapons[i-1]);
+            System.out.println("\t"+ i +": " + weapons[i-1]);
         }
     }
 
@@ -67,18 +67,27 @@ public class BattleArena {
 
     private void turn(Character[] combatants){
         displayCombatants(combatants);
+
+        System.out.println(combatants[0].getName() +"'s turn:");
         combatants[0].takeTurn(combatants[1]);
+
+        System.out.println(combatants[1].getName() +"'s turn:");
         combatants[1].takeTurn(combatants[0]);
     }
 
     public void battle(){
-
+        System.out.println("WELCOME TO THE BATTLE ARENA!\n");
         //init battle
         Hero hero = heroes[r.nextInt(heroes.length)];        //select random hero
         BadGuy badGuy = badGuys[r.nextInt(badGuys.length)];    //select random badguy
+        System.out.println("YOUR HERO: " + hero.getName() + " will be fighting the BAD GUY: " + badGuy.getName() +"\n");
+
+        System.out.println("CHOOSE YOUR WEAPON!\n");
         Character[] combatants = {hero, badGuy};         //prompt user to select hero weapon
         selectWeapon(hero);
-        //select combatants
+
+
+
 
         while (hero.getAlive() && badGuy.getAlive()){
             turn(combatants);
