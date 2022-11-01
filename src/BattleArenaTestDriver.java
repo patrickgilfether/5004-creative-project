@@ -16,7 +16,8 @@ public class BattleArenaTestDriver {
 
         //init
         hero1 = new Hero("Joe", 50, 10, 10);
-        hero2 = new Hero("Moe", 50, 10, 10);
+        hero2 = new Hero("Moe", 50, 10, 10);3
+
         heroes[0] = hero1;
         heroes[1] = hero2;
 

@@ -43,10 +43,11 @@ public class Magic extends Weapon {
      */
     @Override
     public double useSpecial(){
-        if(this.user.getMana()<=0){
+
+        if(((Hero)this.getUser()).getMana()<=0){
             return 0.0;
     } else {
-          this.user.decreaseMana(Constants.MANA_USE_DECREASE);
+            ((Hero)this.getUser()).decreaseMana(Constants.MANA_USE_DECREASE);
           return super.useSpecial();
         }
     }
