@@ -19,7 +19,6 @@ public final class Constants {
     public static final double MAGIC_STRENGTH = 50.0;
     public static final double POOLFLOATY_STRENGTH = 0.0;
 
-
     //WEAPON BACKFIRE CHANCE
     public static final double CHANCE_MELEE_BACKFIRE = .40;
     public static final double CHANCE_RANGED_BACKFIRE = 0.05;
