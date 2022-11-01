@@ -33,7 +33,7 @@ import java.lang.Math;
 public abstract class Weapon {
     private double durability;
     private double strength;
-    private Character user;
+    protected Character user;
     private WeaponType type;
 
     /* ********************************************************************************************

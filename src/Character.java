@@ -208,4 +208,6 @@ public abstract class Character {
 	public void weaponFieldNull() {
 		this.weapon = null;
 	}
+
+
 }
