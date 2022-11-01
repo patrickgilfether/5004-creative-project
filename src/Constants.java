@@ -11,17 +11,21 @@ public final class Constants {
     public static final double MELEE_USE_DURABILITY_CHANGE = -20.0;
     public static final double RANGED_USE_DURABILITY_CHANGE = -10.0;
     public static final double MAGIC_USE_DURABILITY_CHANGE = -10.0;
-
+    public static final double POOLFLOATY_USE_DURABILITY_CHANGE = 0.0;
 
     //WEAPON STRENGTH
     public static final double MELEE_STRENGTH = 100.0;
     public static final double RANGED_STRENGTH = 20.0;
     public static final double MAGIC_STRENGTH = 50.0;
+    public static final double POOLFLOATY_STRENGTH = 0.0;
+
 
     //WEAPON BACKFIRE CHANCE
     public static final double CHANCE_MELEE_BACKFIRE = .40;
     public static final double CHANCE_RANGED_BACKFIRE = 0.05;
     public static final double CHANCE_MAGIC_BACKFIRE = 0.05;
+    public static final double CHANCE_POOLFLOATY_BACKFIRE = 0.99;
+
 
     //OTHER CONSTANTS
     public static final double SPECIAL_ATTACK_FACTOR = 1.5;
